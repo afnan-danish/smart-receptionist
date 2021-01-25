@@ -11,7 +11,7 @@ import shutil
 
 
 
-conn = sqlite3.connect('smart_collin.db')
+conn = sqlite3.connect('smart_receptionist.db')
 db = conn.cursor()
 
 #conn.execute('''CREATE TABLE apt_dtl (ID INT PRIMARY KEY     NOT NULL,
@@ -96,7 +96,7 @@ def myCommand():
 def getDtl():
     greetMe()
     user_gender = 'Dear'
-    speak(f"Hello {user_gender}, I am smart collin.")
+    speak(f"Hello {user_gender}, I am smart receptionist.")
     speak('Tell me details for booking appointment')
     while True:
         speak(f"What is your name {user_gender}?")
@@ -211,13 +211,13 @@ def mainFunc():
                 file_name_path = 'faces/'+str(count)+'-'+str(getLastId())+'-img.jpg'
                 cv2.imwrite(file_name_path,face)
                 cv2.putText(face,str(count),(50,50),cv2.FONT_HERSHEY_COMPLEX,1,(0,255,0),2)
-            cv2.imshow('Smart Collin',face)
+            cv2.imshow('Smart Receptionist',face)
             
             if count==5:
                 file_name_temp = 'temp/temp.jpg'
                 cv2.imwrite(file_name_temp,face)
                 cv2.putText(face,"Please wait... Image is processing",(50,50),cv2.FONT_HERSHEY_COMPLEX,1,(0,255,0),2)
-                cv2.imshow('Smart Collin',face)
+                cv2.imshow('Smart Receptionist',face)
                 if matchFace(file_name_temp):
                     speak('Your detail already present, appointment get fixed.')
                     print(matched_name)
@@ -231,7 +231,7 @@ def mainFunc():
         else:
             #print("Face not Found")
             pass
-        cv2.imshow('Smart Collin',face)
+        cv2.imshow('Smart Receptionist',face)
         if cv2.waitKey(1)=='q' or count==50:
             cap.release()
             cv2.destroyAllWindows()
@@ -243,7 +243,7 @@ root.bind("<F11>", lambda event: root.attributes("-fullscreen", not root.attribu
 root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 root.state('zoomed')
 
-root.title("Smart Collin Admin Panel")
+root.title("Smart Receptionist Admin Panel")
 root.configure(background="Powder Blue")    
     
 progLoop = True

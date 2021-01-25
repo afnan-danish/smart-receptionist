@@ -4,7 +4,7 @@ from tkcalendar import Calendar, DateEntry
 import datetime
 from datetime import date
 import sqlite3
-conn = sqlite3.connect('smart_collin.db')
+conn = sqlite3.connect('smart_receptionist.db')
 db = conn.cursor()
 
 root = Tk()
@@ -13,7 +13,7 @@ root.bind("<F11>", lambda event: root.attributes("-fullscreen", not root.attribu
 root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 root.state('zoomed')
 
-root.title("Smart Collin Admin Panel")
+root.title("Smart Receptionist Admin Panel")
 root.configure(background="Powder Blue")
 
 today = date.today()
